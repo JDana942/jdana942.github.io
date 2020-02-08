@@ -1,0 +1,130 @@
+﻿body header{
+  padding-bottom:10px;
+  margin:0 0 0 0;
+}
+/*-- Header --*/
+
+/*-- Title --*/
+
+.title {
+  color: darkblue;
+  font-family:'Engravers MT';
+  font-size: 3.25em;
+  font-weight:900;
+  text-align:center;
+  position:center;
+}
+
+/*-- Navigation --*/
+
+ul.navmenu{
+  text-align:center;
+  padding:0;
+}
+
+  ul.navmenu li {
+    font-size: 20px;
+    padding: 8px;
+    display: inline;
+    color: #808080;
+  }
+
+  ul.navmenu li a{
+    font-size:20px;
+    text-decoration:none;
+    display:inline;
+    color: #808080;
+  }
+
+  ul.navmenu a:hover{
+    font-weight:bold;
+    color:darkblue;
+  }
+
+/*-- Main Body Format --*/
+body {
+  background-image: linear-gradient(to bottom, white, white 150px, #e1e1e1);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom:50px;
+}
+/*-- footer --*/
+.footer {
+  background-color:#c4c4c4;
+  text-indent:10px;
+  font-size:16px;
+  text-align:left;
+  position:fixed;
+  padding:0;
+  bottom:0px;
+  height:45px;
+  width:100%;
+  margin-left:-8px;
+}
+
+p.downloadButton a {
+  text-decoration: none;
+  background-color:#d7d7d7;
+  color:black;
+  font-weight:400;
+  padding:2px;
+  border:solid thin;
+}
+/**-- Home --*/
+
+ul.listed li {
+  position: center;
+  display: inline-block;
+  text-align: center;
+  padding: 8px;
+}
+
+.listed {
+  text-align: center;
+  margin-left: -40px;
+}
+
+div.thumbnails {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+  div.thumbnails img {
+    width: 350px;
+    height: 250px;
+  }
+
+  div.thumbnails a:hover img {
+    transform: scale(1.01);
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+div.thumbcontainer {
+  font-size: 18px;
+  padding: 5px;
+}
+
+/**-- About --*/
+#bodyAbout{
+  text-align:justify;
+  width:70%;
+}
+
+/**-- Resume --*/
+
+#PDFviewer{
+  position:center;
+  text-align:center;
+  max-height:100%;
+}
+
+/**-- Contact --*/
+#bodyContact {
+  margin:0 0 0 30px;
+  flex:50%;
+}
+
+.label{
+  font-weight:bold;
+  font-size:18px;
+}

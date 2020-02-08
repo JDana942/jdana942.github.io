@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <link href="/Style/ProjexStyle.css" rel="stylesheet" type="text/css" />
+  <script src="/Scripts/ProjexScript.js"></script>
+  <script src="/Scripts/jquery-3.4.1.min.js"></script>
+  <script>
+    $(function () {
+    $("#header").load("header.html");
+    });
+  </script>
+  <script>
+    $(function () {
+    $("#footer").load("footer.html");
+    });
+  </script>
+  <title>Projex-Home</title>
+</head>
+<body>
+  <header>
+    <div id="header"></div>
+  </header>
+
+  <ul class="listed">
+    <li>
+      <div class="thumbnails">
+        <a href="airRacers.html"><img src="/Images/AirRacer.png" alt="AirRacer" style="max-width:100%"></a>
+        <div class="thumbcontainer">
+          Air Racers
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="thumbnails">
+        <a href="fishingReels.html"><img src="/Images/Reel.png" alt="FishingReels" style="max-width:100%"></a>
+        <div class="thumbcontainer">
+          Fishing Reels
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="thumbnails">
+        <a href="pcbHolder.html"><img src="/Images/PCBHolder.png" alt="Miscellaneous" style="max-width:100%"></a>
+        <div class="thumbcontainer">
+          Miscellaneous
+        </div>
+      </div>
+    </li>
+  </ul>
+ 
+  <footer>
+    <div id="footer"></div>
+  </footer>
+</body>
+</html>
