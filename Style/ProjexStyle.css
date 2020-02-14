@@ -48,6 +48,24 @@ body {
   background-repeat: no-repeat;
   margin-bottom:50px;
 }
+
+h1.current_title {
+  font-family: Arial;
+  text-align:center;
+  font-weight:bold;
+  color: maroon;
+}
+
+div.PJX h3 {
+  font-family: Arial;
+  color:crimson;
+}
+
+div.PJX h4 {
+  font-family: Arial;
+  color: maroon;
+}
+
 /*-- footer --*/
 .footer {
   background-color:#c4c4c4;
