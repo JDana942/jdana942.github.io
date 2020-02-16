@@ -170,10 +170,12 @@ p.downloadButton a {
 /**-- Contact --*/
 #bodyContact {
   margin:0 0 0 30px;
+  font-size:20px;
   flex:50%;
 }
 
 .label{
+  font-family:Arial;
   font-weight:bold;
   font-size:18px;
 }

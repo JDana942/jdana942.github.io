@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/Style/ProjexStyle.css" rel="stylesheet" type="text/css" />
+  <script src="/Scripts/ProjexScript.js"></script>
+  <script src="/Scripts/jquery-3.4.1.min.js"></script>
+  <script>
+    $(function () {
+      $("#header").load("/header.html");
+    });
+  </script>
+  <script>
+    $(function () {
+      $("#footer").load("/footer.html");
+    });
+  </script>
+  <title>Rockets</title>
+</head>
+<body>
+  <header>
+    <div id="header"></div>
+  </header>
+
+  <div id="rockets">
+    <h1 class="current_title">Rocket Bodies</h1>
+    <ul class="listed">
+      <li>
+        <div class="thumbnails">
+          <a href="/Home/Rockets/RocketBody/11x50_01.01.html"><img src="/Images/Rockets/Rockets.png" alt="AirRacer" style="max-width:100%"></a>
+          <div class="thumbcontainer">
+            11x50_01.01
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div id="engines">
+    <h1 class="current_title">Rocket Engines</h1>
+    <ul class="listed">
+      <li>
+        <div class="thumbnails">
+          <a href="/Home/Rockets/Engines/11x50_EB.01.html"><img src="/Images/Rockets/Engines/11x50_EB.01.png" alt="AirRacer" style="max-width:100%"></a>
+          <div class="thumbcontainer">
+            11x50_EB.01
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+ 
+  <footer>
+    <div id="footer"></div>
+  </footer>
+
+</body>
+</html>
