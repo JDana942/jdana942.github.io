@@ -85,21 +85,12 @@ div.PJX h4 {
   .displayimg li img {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
-    height: 350px;
-    width: 500px;
+    padding: 10px;
+    height: 250px;
+    width: 350px;
     cursor: pointer;
-    transition:0.3s;
+    border-radius: 10px;
   }
-
-.displayimg_elg li img {
-  text-align: center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  text-align: center;
-  height: 350px;
-  width: 500px;
-  cursor: pointer;
-  transform: scale(1.5);
-}
 
 li.specs{
   margin-right:60px;
