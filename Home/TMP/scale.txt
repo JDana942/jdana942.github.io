@@ -1,0 +1,144 @@
+#!/usr/bin/python
+
+# Code Rev001
+#from RPi import GPIO # For use in IDE
+import RPi.GPIO as GPIO # For use in RPi
+import os
+import sys
+import time
+from statistics import mean
+import signal
+
+DT = 20
+CLK = 21
+IGN = 4
+
+def _read():
+  i=0
+  Count=0
+  GPIO.setup(CLK, GPIO.OUT)
+  GPIO.setup(DT, GPIO.IN)
+  GPIO.output(CLK,0)
+  s = signal.signal(signal.SIGINT, signal.SIG_IGN)
+  while GPIO.input(DT) == 1:
+      i=0
+  for i in range(24):
+        GPIO.output(CLK,1)
+        Count=Count<<1
+        GPIO.output(CLK,0)
+        if GPIO.input(DT) == 0:
+            Count=Count+1
+  GPIO.output(CLK,1)
+  Count=Count^0x800000
+  GPIO.output(CLK,0)
+  signal.signal(signal.SIGINT, s)
+  return Count
+
+def _cal():
+  print("Setting up scale")
+  #s = signal.signal(signal.SIGINT, signal.SIG_IGN)
+  zero_1 = []
+  zero_2 = []
+  for i in range (3):
+    zero_1.append(_read())
+    zero_f1 = mean(zero_1)
+  for i in range (3):
+    zero_2.append(_read()-zero_f1)
+  zero_f2 = mean(zero_2)
+  zero_factor = zero_f1 + zero_f2
+  #signal.signal(signal.SIGINT, s)
+  print("Ready")
+  return zero_factor
+
+def _terminal():
+  print("Select one of the following options")
+  usr = str(input("1) Measure\n2) Measure and Record\n3) Instance measure\n4) Logout\n"))
+  if (usr == "1"):
+    _measure()
+  elif (usr == "2"):
+    _measureRecord()
+  elif (usr == "3"):
+    _instanceMeasure()
+  elif (usr == "4"):
+    _exit()
+  else:
+    print("Improper Response")
+
+def _measure():
+  scaleZero = (_cal())
+  while(True):
+    measure = round((_read()-scaleZero)/1000, 2)
+    print(measure)
+    signal.signal(signal.SIGTSTP, _handler)
+  _terminal()
+
+def _measureRecord():
+  b = 0
+  Force = []
+  Time = []
+  scaleZero = (_cal())
+  while(True):
+    measure = round((_read()-scaleZero)/1000, 2)
+    if(measure > 3.0):
+      measure = round((_read()-scaleZero)/1000, 2)
+      if(measure > 3.0):
+        print("Recording")
+        starttime = time.time()
+        while(True):
+          measure = round((_read()-scaleZero)/1000, 2)
+          b += 1
+          Force.append(measure)
+          Time.append(b)
+          if(measure < 2.0 and measure > -2.0):  # condition to break loop
+            endtime = time.time()
+            print("Finished Recording")
+            filetime = time.strftime("%H:%M:%S")
+            totaltime = str(endtime - starttime)
+            Force = str(Force).strip('[]')
+            Time = str(Time).strip('[]')
+            result = open("/home/pi/Documents/LoadCell_Data/scale_results.csv","a")
+            result.write(Force + "\n" + Time + "\n" + totaltime + "\n" + filetime +"\n")
+            result.close()
+            _terminal()
+          else:
+            pass
+      else:
+        pass
+    else:
+      pass
+
+def _instanceMeasure():
+  scaleZero = (_cal())
+  while(True):
+    usr = str(input("1) Measure\n2) Zero scale\n3) Exit\n"))
+    if (usr == "1"):
+      measure = round((_read()-scaleZero)/1000, 2)
+      print(measure)
+    elif (usr == "2"):
+      scaleZero = (_cal())
+    elif (usr == "3"):
+      _terminal()
+    else:
+      print("Incorrect Response")
+
+def _handler(signum, frame):
+  _terminal()
+
+def _exit():
+  print("System exiting")
+  time.sleep(2)
+  GPIO.cleanup()
+  os._exit(0)
+
+def main():
+  try:
+    GPIO.setwarnings(False)
+    GPIO.setmode(GPIO.BCM)
+    _terminal()
+  except KeyboardInterrupt:
+    _terminal()
+  finally:
+    _terminal()
+
+if __name__ == "__main__":
+  main()

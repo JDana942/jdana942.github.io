@@ -1,0 +1,31 @@
+#include <SPI.h>
+#include "RF24.h"
+
+int MotorL_Pin = 3;
+int MotorR_Pin = 9;
+const byte address[6] = {"00001"};
+
+struct dataStruct{
+  long int RMP;
+  long int LMP;
+}TransD;
+
+RF24 radio(7,8);
+
+void setup() {
+  pinMode(MotorR_Pin, OUTPUT);
+  pinMode(MotorL_Pin, OUTPUT);
+  Serial.begin(115200);
+  radio.begin();
+  radio.setPALevel(RF24_PA_MAX);
+  radio.openReadingPipe(0,address);
+  radio.startListening();
+}
+
+void loop() {
+  while (radio.available()){
+    radio.read(&TransD, sizeof(TransD));
+    }
+  analogWrite(MotorR_Pin, TransD.RMP);
+  analogWrite(MotorL_Pin, TransD.LMP);
+ }

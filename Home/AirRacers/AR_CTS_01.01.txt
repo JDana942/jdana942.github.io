@@ -1,0 +1,60 @@
+#include <SPI.h>
+#include "RF24.h"
+
+int AnalogL_Pin = A0;
+int AnalogR_Pin = A1;
+//int ADJ_Pin = A2;
+int LeftMPower;
+int RightMPower;
+const byte address[6] = {"00001"};
+
+struct dataStruct{
+  long int RMP;
+  long int LMP;
+}TransD;
+
+RF24 radio(7,8);
+
+
+void setup() {
+  pinMode(AnalogL_Pin, INPUT);
+  pinMode(AnalogR_Pin, INPUT);
+  //pinMode(ADJ_Pin, INPUT);
+  Serial.begin(115200);
+  radio.begin();
+  radio.openWritingPipe(address);
+  radio.setPALevel(RF24_PA_MAX);
+}
+
+void loop() {
+  radio.stopListening();
+  Serial.println("Sending");
+  int Throttle = analogRead(AnalogL_Pin);
+  int Steering = analogRead(AnalogR_Pin);
+  //int ADJ = analogRead(ADJ_Pin);
+  if (Throttle <= 350){
+    Throttle = map(Throttle, 350,0, 0,23);
+    if (Steering <= 500){
+      Steering =  map(Steering, 500,0, 11,0);
+      RightMPower = Throttle * Steering;
+      LeftMPower = Throttle * 11;
+      TransD.RMP = RightMPower;
+      TransD.LMP = LeftMPower;
+      radio.write(&TransD, sizeof(TransD));
+    }
+    else{
+      Steering =  map(Steering, 501,1023, 11,0);
+      LeftMPower = Throttle * Steering;
+      RightMPower = Throttle * 11;
+      TransD.RMP = RightMPower;
+      TransD.LMP = LeftMPower;
+      radio.write(&TransD, sizeof(TransD));
+    }
+  }
+  else{
+    Throttle = 0;
+    TransD.RMP = 0;
+    TransD.LMP = 0;
+    radio.write(&TransD, sizeof(TransD));
+  }
+}

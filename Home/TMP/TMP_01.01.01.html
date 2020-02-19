@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/Style/ProjexStyle.css" rel="stylesheet" type="text/css" />
+  <link href="/Style/lightbox.css" rel="stylesheet" />
+  <script src="/Scripts/ProjexScript.js"></script>
+  <script src="/Scripts/jquery-3.4.1.min.js"></script>
+  <script src="/Scripts/lightbox.js"></script>
+  <script>
+    $(function () {
+      $("#header").load("/header.html");
+    });
+  </script>
+  <script>
+    $(function () {
+      $("#footer").load("/footer.html");
+    });
+  </script>
+  <title>TMP_01.01.01</title>
+</head>
+<body>
+  <header>
+    <div id="header"></div>
+  </header>
+  <h1 class="current_title">TMP_01.01.01</h1>
+  <ul class="displayimg">
+    <li>
+      <a href="/Images/TMP/TMP.png" data-lightbox="roadtrip"><img src="/Images/TMP/TMP.png" /></a>
+      <a href="/Images/TMP/TMP_01.01.01_live1.jpeg" data-lightbox="roadtrip"><img src="/Images/TMP/TMP_01.01.01_live1.jpeg" /></a>
+      <a href="/Images/TMP/TMP_01.01.01_SCH.png" data-lightbox="roadtrip"><img src="/Images/TMP/TMP_01.01.01_SCH.png" /></a>
+    </li>
+  </ul>
+  <div class="PJX">
+    <ul style="position:center;display:inline-flex">
+      <li class="specs">
+        <h3>Features</h3>
+        <ol>
+          <li></li>
+        </ol>
+      </li>
+      <li>
+        <h4>Downloads</h4>
+        <ol>
+          <li><a href="LaunchControl.txt" download>Launch Control Software</a></li>
+          <li><a href="scale.txt"download>Scale Software</a></li>
+        </ol>
+      </li>
+    </ul>
+  </div>
+  <footer>
+    <div id="footer"></div>
+  </footer>
+</body>
+</html>
