@@ -4,8 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="/Style/ProjexStyle.css" rel="stylesheet" type="text/css" />
+  <link href="/Style/lightbox.css" rel="stylesheet" />
   <script src="/Scripts/ProjexScript.js"></script>
   <script src="/Scripts/jquery-3.4.1.min.js"></script>
+  <script src="/Scripts/lightbox.js"></script>
   <script>
     $(function () {
       $("#header").load("/header.html");
@@ -16,19 +18,31 @@
       $("#footer").load("/footer.html");
     });
   </script>
-  <title>Website-Projex</title>
+  <title>TMP_02.01</title>
 </head>
 <body>
   <header>
     <div id="header"></div>
   </header>
-  <!--<p class="download_link">
-    <a href="/Files/Website_Projex.zip" download>Download "Website_Projex"</a>
-  </p>
-  -->
-  <p class="downloadButton">
-    <a href="https://github.com/JDana942/jdana942.github.io" target="_blank">Dist_Link</a>
-  </p>
+  <h1 class="current_title">TMP_02.01</h1>
+  <ul class="displayimg">
+    <li>
+      <a href="/Images/TMP/TMP_02.01.png" data-lightbox="roadtrip"><img src="/Images/TMP/TMP_02.01.png" /></a>
+    </li>
+  </ul>
+  <div class="PJX">
+    <ul style="position:center;display:inline-flex">
+      <li class="specs">
+        <h3>Features</h3>
+        <ol>
+          <li></li>
+        </ol>
+      </li>
+      <li>
+        <h4>Downloads</h4>
+      </li>
+    </ul>
+  </div>
   <footer>
     <div id="footer"></div>
   </footer>

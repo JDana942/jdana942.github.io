@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, inital-scale=1" />
+  <link href="/Style/ProjexStyle.css" rel="stylesheet" type="text/css" />
+  <link href="/Style/lightbox.css" rel="stylesheet" type="text/css" />
+  <script src="/Scripts/ProjexScript.js"></script>
+  <script src="/Scripts/jquery-3.4.1.min.js"></script>
+  <script src="/Scripts/lightbox.js"></script>
+  <script>
+      $(function () {
+        $("#header").load("/header.html")
+      });
+  </script>
+  <script>
+      $(function() {
+        $("#footer").load("/footer.html")
+      });
+  </script>
+  <title>FS_01.01</title>
+</head>
+<body>
+  <header>
+    <div id="header"></div>
+  </header>
+  <h1 class="current_title">FS_01.01</h1>
+  <ul class="displayimg">
+    <li>
+      <a href="/Images/FishStrike/FS_01.01.png" data-lightbox="roadtrip"><img src="/Images/FishStrike/FS_01.01.png" /></a>
+    </li>
+    <li>
+      <a href="/Images/FishStrike/FS_01.01_EXPL.png" data-lightbox="roadtrip"><img src="/Images/FishStrike/FS_01.01_EXPL.png" /></a>
+    </li>
+    <li>
+      <a href="/Images/FishStrike/FS_01.01_FEA.png" data-lightbox="roadtrip"><img src="/Images/FishStrike/FS_01.01_FEA.png" /></a>
+    </li>
+  </ul>
+  <div class="PJX">
+    <ul style="position:center;display:inline-flex">
+      <li class="specs">
+        <h3>Specs</h3>
+        <ol>
+          <li>1" clip on style design</li>
+          <li>Tension adjustment screw</li>
+          <li>12.85 MPa peak stress</li>
+        </ol>
+      </li>
+    </ul>
+  </div>
+  <footer>
+    <div id="footer"></div>
+  </footer>
+</body>
+</html>
